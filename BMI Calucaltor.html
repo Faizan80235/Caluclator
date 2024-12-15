@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url(images/opportunity-image.webp);
+        }
+
+        .container {
+            border: 2px ridge;
+            color: white;
+            width: fit-content;
+            padding: 3%;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            margin: auto;
+            margin-top: 5%;
+
+        }
+
+        li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>BMI Calucaltor</h1>
+        <h2>Height(cm)</h2>
+        <input type="text" name="" id="height">
+        <h2>Weight(kg)</h2>
+        <input type="text" name="" id="document">
+        <br> <br>
+        <button id="btn">Collect Bmi</button>
+
+        <ul id="ul"></ul>
+
+        <p id="atatus"></p>
+    </div>
+</body>
+<script>
+
+    let input1 = document.getElementById('height');
+    let input2 = document.getElementById('document');
+    let button = document.getElementById('btn');
+    let ul = document.getElementById('ul');
+    button.addEventListener("click", Bmi);
+    function Bmi() {
+        let li = document.createElement('li');
+        const height = input1.value / 100;
+        let category = "";
+        var bmi = input2.value / (height * height);
+        var bmi = bmi.toFixed(2);
+
+
+        //   li.append(final);
+
+        if (bmi <= 18.5) {
+            category = "Under weight ";
+        }
+        if (bmi >= 18.5 && bmi <= 24.9) {
+            category = " Noraml Weight";
+        }
+        else if (bmi >= 25 && bmi <= 29.9) {
+            category = "Over weight";
+        }
+        else if (bmi >= 30) {
+            category = " Obese";
+        }
+        li.append(bmi);
+        li.append(category);
+        ul.append(li);
+        input1.value = "";
+        input2.value = "";
+
+    }
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+
+</html>
